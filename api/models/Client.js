@@ -11,10 +11,10 @@ const schema = new mongoose.Schema({
   birthDay: Date,
   age: Number,
   address: String,
-  references: {
+  references: [{
     name: String,
     phone: String
-  },
+  },],
   email: String,
   phone: String
 });
