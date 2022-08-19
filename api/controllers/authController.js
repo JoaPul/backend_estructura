@@ -1,5 +1,7 @@
 import bcrypt from 'bcrypt';
 import User from '../models/User.js';
+import jwt from 'jwt-simple';
+import config from '../config/index.js';
 
 const login = async (req, res) => {
   try {
@@ -20,6 +22,17 @@ const login = async (req, res) => {
       });
     }
     //TODO: crear token y regresarlo
+
+    const payload = {
+      userId: user.id,
+    };
+
+    const token = jwt.encode(payload, config.jwt.secret);
+
+    return res.json({
+      mdg: "Login correcto",
+      data: { token }
+    })
   } catch (error) {
     return res.status(500).json({
       msg: 'Error al hacer login',
