@@ -8,7 +8,7 @@ const router = express.Router();
 /**
  * TODO: Aca van todas las rutas de libros
  */
-router.use(isAuth);
+router.use('/books', isAuth);
 
 router.route('/books').get(bookController.getAllBooks).post(/*aqui va el middleware*/createBookValidator, bookController.creaeteBooks);
 router.route('/books/:id',).get(bookController.getBookById).put(bookController.updateBooksById).delete(bookController.deleteBookById);
