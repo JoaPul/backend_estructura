@@ -44,7 +44,6 @@ const getBookById = async (req, res) => {
       error
     })
   }
-
 };
 const updateBooksById = async (req, res) => {
   try {
